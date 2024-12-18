@@ -109,14 +109,13 @@ To ensure the `hexo algolia` command functions correctly and securely, you need 
 1.  Log in to your Algolia dashboard.
 2.  Navigate to the "Settings/Team and Access/API Keys" section.
 3.  Click "All API Keys/New API Key" to create a new API key.
-4.  **Important:** In the "Indices" permissions settings, select the index you will use for Hexo Algolia indexing.
-5.  **Important:** Grant this key only the following permissions:
+4.  **Important:** Grant this key only the following permissions:
     *   `addObject` (Add records)
     *   `deleteObject` (Delete records)
     *   `listIndices` (List indices)
     *   `deleteIndex` (Delete index)
     ![](algolia-write-key.png)
-6.  Copy the newly created API key.
+5.  Copy the newly created API key.
 
 
 
