@@ -96,15 +96,47 @@ Content is indexed with the help of the `hexo algolia` command.
 $ ./node_modules/.bin/hexo algolia
 ```
 
-### API Key
 
-A separate _API Key_ must be provided as an **environment variable** named `HEXO_ALGOLIA_INDEXING_KEY`. Create it with **these limited write access** permissions: `Add records`, `Delete records`, `List indices`, `Delete index`.
+### Configuring Indexing
+
+To ensure the `hexo algolia` command functions correctly and securely, you need to create a dedicated API key with only the necessary write permissions and configure it as a system environment variable named `HEXO_ALGOLIA_INDEXING_KEY`. 
+
+
+**Creating API Key:**
+
+1.  Log in to your Algolia dashboard.
+2.  Navigate to the "Settings/Team and Access/API Keys" section.
+3.  Click "All API Keys/New API Key" to create a new API key.
+4.  **Important:** In the "Indices" permissions settings, select the index you will use for Hexo Algolia indexing.
+5.  **Important:** Grant this key only the following permissions:
+    *   `addObject` (Add records)
+    *   `deleteObject` (Delete records)
+    *   `listIndices` (List indices)
+    *   `deleteIndex` (Delete index)
+    ![](algolia-write-key.png)
+6.  Copy the newly created API key.
+
+
+
+**Configuring Variable:**
 
 ```bash
-$ export HEXO_ALGOLIA_INDEXING_KEY=…
-$ ./node_modules/.bin/hexo algolia
+export HEXO_ALGOLIA_INDEXING_KEY="YOUR_API_KEY"  # mac/linux/git-bash
+setx HEXO_ALGOLIA_INDEXING_KEY "YOUR_API_KEY"  # windows-powershell
+set HEXO_ALGOLIA_INDEXING_KEY=YOUR_API_KEY # windows-cmd
 ```
-![](algolia-write-key.png)
+
+
+**Executing Command:**
+
+Once configured, you can execute the following command in your Hexo project's root directory to generate and upload the Algolia index:
+
+```bash
+hexo clean
+hexo algolia
+```
+
+
 
 ### Usage
 
