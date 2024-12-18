@@ -25,7 +25,9 @@ $ npm install --save hexo-algolia
 
 ## Public Facing Search Options
 
-You can configure Algolia integration to your hexo website with the `_config.yml` file:
+You can configure Algolia integration for your Hexo website using the `_config.yml` file:
+> [!WARNING]  
+> The Algolia configuration **must** be added to the `_config.yml` file in your Hexo site's root directory. **Do not** add these settings to `themes/your-theme/_config.yml`. Doing so will result in a `TypeError: Cannot read properties of undefined (reading 'fields')` error when you run the index update command `hexo algolia`.
 
 ``` yaml
 algolia:
@@ -132,8 +134,8 @@ set HEXO_ALGOLIA_INDEXING_KEY=YOUR_API_KEY # windows-cmd
 Once configured, you can execute the following command in your Hexo project's root directory to generate and upload the Algolia index:
 
 ```bash
-hexo clean
-hexo algolia
+./node_modules/.bin/hexo clean
+./node_modules/.bin/hexo algolia
 ```
 
 
